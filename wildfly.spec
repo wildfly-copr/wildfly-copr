@@ -15,7 +15,7 @@
 %global wfuid 185
 
 Name:             wildfly
-Version:          17.0.1
+Version:          18.0.1
 Release:          1%{?dist}
 Summary:          WildFly Application Server
 License:          LGPLv2+ and ASL 2.0 and GPLv2 with exceptions
@@ -239,6 +239,9 @@ exit 0
 %{_docdir}/%{name}
 
 %changelog
+* Thu Dec 26 2019 Ricardo Arguello - 1:18.0.1-1
+- Upstream 18.0.1.Final release
+
 * Thu Aug 22 2019 Ricardo Arguello - 1:17.0.1-1
 - Upstream 17.0.1.Final release
 
