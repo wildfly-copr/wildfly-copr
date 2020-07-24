@@ -16,7 +16,7 @@
 
 Name:             wildfly
 Version:          20.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          WildFly Application Server
 License:          LGPLv2+ and ASL 2.0 and GPLv2 with exceptions
 URL:              http://wildfly.org/
@@ -41,7 +41,7 @@ Obsoletes:        jboss-as < 7.1.1-22
 BuildArch:        noarch
 
 # Required for compiling JSP for example
-Requires:         java-devel >= 1:1.8
+Requires:         java-devel
 
 Requires(pre):    shadow-utils
 Requires(post):   systemd-units
@@ -239,6 +239,9 @@ exit 0
 %{_docdir}/%{name}
 
 %changelog
+* Thu Jul 23 2020 Ricardo Arguello - 1:20.0.1-2
+- Allow to use java-11-openjdk-devel
+
 * Thu Jul 23 2020 Ricardo Arguello - 1:20.0.1-1
 - Upstream 20.0.1.Final release
 
