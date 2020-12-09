@@ -15,8 +15,8 @@
 %global wfuid 185
 
 Name:             wildfly
-Version:          21.0.0
-Release:          2%{?dist}
+Version:          21.0.1
+Release:          1%{?dist}
 Summary:          WildFly Application Server
 License:          LGPLv2+ and ASL 2.0 and GPLv2 with exceptions
 URL:              http://wildfly.org/
@@ -238,6 +238,9 @@ exit 0
 %{_docdir}/%{name}
 
 %changelog
+* Wed Dec 09 2020 Ricardo Arguello - 1:21.0.1-1
+- Upstream 21.0.1.Final release
+
 * Fri Oct 23 2020 Ricardo Arguello - 1:21.0.0-2
 - Require java-11-headless instead of java-11-devel
 
