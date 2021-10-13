@@ -15,13 +15,13 @@
 %global wfuid 185
 
 Name:             wildfly
-Version:          23.0.2
+Version:          25.0.0
 Release:          1%{?dist}
 Summary:          WildFly Application Server
 License:          LGPLv2+ and ASL 2.0 and GPLv2 with exceptions
 URL:              http://wildfly.org/
 
-Source0:          https://download.jboss.org/wildfly/%{namedversion}/wildfly-%{namedversion}.tar.gz
+Source0:          https://github.com/wildfly/wildfly/releases/download/%{namedversion}/wildfly-%{namedversion}.tar.gz
 
 # Makes possible to run WildFly AS in different directory by creating the structure and copying required configuration files
 Source1:          wildfly-cp.sh
@@ -71,7 +71,6 @@ This package contains the documentation for %{name}.
 
 %install
 
-install -d -m 755 $RPM_BUILD_ROOT%{_javadir}/%{name}
 install -d -m 755 $RPM_BUILD_ROOT%{homedir}
 install -d -m 755 $RPM_BUILD_ROOT%{confdir}
 install -d -m 755 $RPM_BUILD_ROOT%{rundir}
@@ -100,6 +99,11 @@ pushd .
 
   # We don't need legacy init scripts
   rm -rf bin/init.d
+
+  # Remove native binaries
+  rm -rf modules/system/layers/base/org/wildfly/openssl/main/lib/win-x86_64 \
+         modules/system/layers/base/org/wildfly/openssl/main/lib/macosx-x86_64 \
+         modules/system/layers/base/org/wildfly/openssl/main/lib/linux-s390x
 
   # Prepare directory for properties files
   install -d -m 755 docs/examples/properties
@@ -155,7 +159,6 @@ pushd $RPM_BUILD_ROOT%{homedir}
   # Auth dir
   ln -s %{cachedir}/auth auth
 popd
-
 
 pushd $RPM_BUILD_ROOT%{_bindir}
   # jboss-cli
@@ -232,12 +235,14 @@ exit 0
 %doc %{homedir}/README.txt
 %doc %{homedir}/copyright.txt
 %doc %{homedir}/LICENSE.txt
-%dir %{_javadir}/%{name}
 
 %files doc
 %{_docdir}/%{name}
 
 %changelog
+* Tue Oct 12 2021 Ricardo Arguello - 1:25.0.0-1
+- Upstream 25.0.0.Final release
+
 * Sat May 15 2021 Ricardo Arguello - 1:23.0.2-1
 - Upstream 23.0.2.Final release
 
