@@ -19,7 +19,7 @@ Version:          26.0.0
 Release:          1%{?dist}
 Summary:          WildFly Application Server
 License:          LGPLv2+ and ASL 2.0 and GPLv2 with exceptions
-URL:              http://wildfly.org/
+URL:              https://wildfly.org/
 
 Source0:          https://github.com/wildfly/wildfly/releases/download/%{namedversion}/wildfly-%{namedversion}.tar.gz
 
