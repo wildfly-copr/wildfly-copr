@@ -101,9 +101,13 @@ pushd .
   rm -rf bin/init.d
 
   # Remove native binaries
-  rm -rf modules/system/layers/base/org/wildfly/openssl/main/lib/win-x86_64 \
-         modules/system/layers/base/org/wildfly/openssl/main/lib/macosx-x86_64 \
-         modules/system/layers/base/org/wildfly/openssl/main/lib/linux-s390x
+  rm -rf modules/system/layers/base/org/wildfly/openssl/main/lib/linux-s390x/*.so \
+         modules/system/layers/base/org/wildfly/openssl/main/lib/linux-x86_64/*.so \
+         modules/system/layers/base/org/wildfly/openssl/main/lib/macosx-x86_64/*.dylib \
+         modules/system/layers/base/org/wildfly/openssl/main/lib/win-x86_64/*.dll \
+         modules/system/layers/base/org/apache/activemq/artemis/journal/main/lib/linux-i686/*.so \
+         modules/system/layers/base/org/apache/activemq/artemis/journal/main/lib/linux-x86_64/*.so \
+         modules/system/layers/base/io/netty/netty-transport-native-epoll/main/lib/META-INF/native/*.so
 
   # Prepare directory for properties files
   install -d -m 755 docs/examples/properties
